@@ -1,0 +1,90 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+#wrapper{
+    /* width:100vw; */
+    height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+.container{
+    height:100%;
+    max-width: 1200px;
+    /* to centre container of 1200px width we use margin vertical 0 and horizontal equal */
+    margin:0 auto;
+    padding:20px;
+    /* background-color: antiquewhite; */
+}
+.container h1{
+    /* top&bottom and right&left */
+    margin: 20px 0;
+    text-align: center;
+    font-size: 3rem;
+
+}
+.gallery{
+    display:flex;
+    /* if cannnot be placed in same row then come to next row that's why we use flex-wrap=wrap; */
+    flex-wrap:wrap;
+    /* to give space between elements in row */
+    justify-content: space-between;
+}
+.card{
+    /* to give space we use 32 not 33*/
+    width:32%;
+    /* to overlap image and text on card */
+    position:relative;
+    margin-bottom: 20px;
+    /* to round corner of card */
+    border-radius: 10px;
+    /* to hide if any overflow importane if using border radius */
+    overflow:hidden;
+    /* height: 750px; */
+    
+
+}
+.card img{
+    /* to make imag fully settled in card it take 100 % of card width and height */
+    width:100%;
+    /* to round the border of image as height of card is not 100 % it is rounded so indirectly imaage also get rounded on makeing 100 % of card */
+    height:100%;
+    /* to black&white the images */
+    filter:grayscale(100%);
+ 
+    box-shadow: 0 0 20px #333;
+    object-fit: cover;
+
+}
+.card:hover{
+    transform:scale(1.03);
+    /* see diff of box and drop shadow */
+    filter:box-shadow(0 0 10px #333);
+    /* taking time of doing all this */
+    transition:0.3s
+    
+}
+.card:hover img{
+    filter:grayscale(0%);
+}
+.card figcaption{
+    position:absolute;
+    bottom: 0;
+    left:0;
+    padding: 25px;
+    width:100%;
+    height:20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    /* making unvisible */
+    opacity:0;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg,rgba(0,0,0,0.5) 0%,rgba(255,255,255,0) 100%);
+    transition:0.3s;
+}
+.card:hover figcaption{
+    opacity:1;
+    transform:scale(1.03);
+}
